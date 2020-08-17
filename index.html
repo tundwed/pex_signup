@@ -49,12 +49,28 @@
             </form>
           </div>
         </div>
+<<<<<<< HEAD
       </div>
     </div>
     <script>
       $(document).ready(function(){
         $("input[type=submit]").click(function(e){
           e.preventDefault();
+=======
+        <script>
+            contactForm.onsubmit = async (e) => {
+              e.preventDefault();
+              let formData = new FormData(document.getElementById('contactForm'));
+              formData.append('source', 'Website');
+              for (var pair of formData.entries()) {
+              console.log(pair[0]+ ', ' + pair[1]); 
+              }
+              let response = await fetch('https://r35wi00jx5.execute-api.eu-west-1.amazonaws.com/develdee/feedback', {
+                  method: 'POST',
+                  mode: 'no-cors',
+                  body: formData,
+              });
+>>>>>>> cea9bba9f284afedfbe44751d908d03ba5c34db9
 
           var apiGatewayInvokeURL = 'https://r35wi00jx5.execute-api.eu-west-1.amazonaws.com/develdee/feedback';
           var body = {
